@@ -1305,6 +1305,7 @@
 // }
 
 // export default ProposalForm;
+
 import React, { useState, useEffect } from 'react';
 import { 
   Form, 
@@ -1435,8 +1436,8 @@ function ProposalForm({ onSubmit, onAdminClick }) {
     const newErrors = {};
     
     // Client name validation
-    if (formData.client_name.length < 2 || formData.client_name.length > 10) {
-      newErrors.client_name = 'Brand name must be 2–10 letters long';
+    if (formData.client_name.length < 2 || formData.client_name.length > 30) {
+      newErrors.client_name = 'Brand name must be 2–30 letters long';
     }
     
     // Email validation
@@ -1446,8 +1447,13 @@ function ProposalForm({ onSubmit, onAdminClick }) {
     }
     
     // Project title validation
+    // if (!formData.project_title || formData.project_title.trim() === '') {
+    //   newErrors.project_title = 'Project title is required';
+    // }
     if (!formData.project_title || formData.project_title.trim() === '') {
       newErrors.project_title = 'Project title is required';
+    } else if (formData.project_title.length > 100) {
+      newErrors.project_title = 'Project title must be 1–100 characters long';
     }
     
     // Category validation
@@ -1468,7 +1474,9 @@ function ProposalForm({ onSubmit, onAdminClick }) {
       const today = new Date();
       const fyStartYear = today.getMonth() >= 3 ? today.getFullYear() : today.getFullYear() - 1;
       const fyStart = new Date(fyStartYear, 3, 1); // April 1
-      const fyEnd = new Date(fyStartYear + 1, 2, 31); // March 31
+      // const fyEnd = new Date(fyStartYear + 1, 2, 31); // March 31
+      const fyEnd = new Date(`${fyStartYear + 1}-03-31T23:59:59`);
+
       
       if (shootDate < fyStart || shootDate > fyEnd) {
         newErrors.shoot_dates = `Date must be within FY ${fyStartYear}-${fyStartYear + 1}`;
@@ -1516,13 +1524,25 @@ function ProposalForm({ onSubmit, onAdminClick }) {
   };
 
   // Calculate fiscal year dates for min/max date inputs
-  const today = new Date();
-  const fyStartYear = today.getMonth() >= 3 ? today.getFullYear() : today.getFullYear() - 1;
-  const fyStart = new Date(fyStartYear, 3, 1); // April 1
-  const fyEnd = new Date(fyStartYear + 1, 2, 31); // March 31
+  // const today = new Date();
+  // const fyStartYear = today.getMonth() >= 3 ? today.getFullYear() : today.getFullYear() - 1;
+  // const fyStart = new Date(fyStartYear, 3, 1); // April 1
+  // const fyEnd = new Date(fyStartYear + 1, 2, 31); // March 31
   
-  const minDate = fyStart.toISOString().split('T')[0];
-  const maxDate = fyEnd.toISOString().split('T')[0];
+  // const minDate = fyStart.toISOString().split('T')[0];
+  // const maxDate = fyEnd.toISOString().split('T')[0];
+  const today = new Date();
+const fyStartYear = today.getMonth() >= 3 ? today.getFullYear() : today.getFullYear() - 1;
+const fyStart = new Date(fyStartYear, 3, 1); // April 1
+// const fyEnd = new Date(fyStartYear + 1, 2, 31); // March 31
+const fyEnd = new Date(`${fyStartYear + 1}-03-31T23:59:59`);
+
+// Choose today or fiscal start, whichever is later
+const effectiveMinDate = today > fyStart ? today : fyStart;
+
+const minDate = effectiveMinDate.toISOString().split('T')[0];
+const maxDate = fyEnd.toISOString().split('T')[0];
+
 
   // Get selected services details for summary
   const selectedServicesDetails = formData.services.map(id => {
@@ -1801,9 +1821,9 @@ function ProposalForm({ onSubmit, onAdminClick }) {
                                 />
                                 <Form.Check.Label className="ms-2 d-flex justify-content-between w-100">
                                   <span>{service.service_name}</span>
-                                  <Badge bg="light" text="dark" className="ms-2 rate-display">
+                                  {/* <Badge bg="light" text="dark" className="ms-2 rate-display">
                                     ₹{service.rate_per_day.toLocaleString()}/day
-                                  </Badge>
+                                  </Badge> */}
                                 </Form.Check.Label>
                               </Form.Check>
                             </Col>
@@ -1980,7 +2000,7 @@ function ProposalForm({ onSubmit, onAdminClick }) {
                     <FontAwesomeIcon icon={faInfoCircle} className="me-3 text-primary fa-lg" />
                     <small>
                       <strong>Need help?</strong> Contact the admin team at{' '}
-                      <a href="mailto:admin@tsbi.in">admin@tsbi.in</a> for assistance.
+                      <a href="mailto:admin@tsbi.in">tech@tsbi.in</a> for assistance.
                     </small>
                   </div>
                 </Card.Body>
