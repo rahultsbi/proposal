@@ -1,0 +1,286 @@
+/* HomePage.css - Styles for the enhanced HomePage */
+
+/* Main container styles */
+.home-page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+  }
+  
+  /* Animated background */
+  .background-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .animated-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+  
+  .shape1 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, #4a90e2, #63b3ed);
+    top: -100px;
+    right: -50px;
+    animation: float 15s ease-in-out infinite;
+  }
+  
+  .shape2 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, #48bb78, #38b2ac);
+    bottom: -50px;
+    left: -50px;
+    animation: float 18s ease-in-out infinite reverse;
+  }
+  
+  .shape3 {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(45deg, #ed8936, #ed64a6);
+    top: 50%;
+    left: 15%;
+    animation: float 20s ease-in-out infinite 1s;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate(30px, 20px) rotate(5deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+  }
+  
+  /* Main content container */
+  .home-container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Main card styling */
+  .main-card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-out forwards;
+    background: white;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Logo styling */
+  .logo-container {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+  
+  .logo-image {
+    max-width: 140px;
+    animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s forwards;
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  
+  @keyframes popIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Title styling */
+  .welcome-title {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #333;
+    animation: slideIn 0.7s ease-out 0.5s forwards;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  .welcome-subtitle {
+    color: #6c757d;
+    margin-bottom: 2rem;
+    animation: slideIn 0.7s ease-out 0.7s forwards;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Options container */
+  .options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .options-container {
+      flex-direction: row;
+    }
+  }
+  
+  /* Option cards */
+  .option-link {
+    flex: 1;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .proposal-link {
+    animation-delay: 0.9s;
+  }
+  
+  .admin-link {
+    animation-delay: 1.1s;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .option-card {
+    height: 100%;
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  .proposal-card {
+    border-left: 4px solid #28a745;
+  }
+  
+  .admin-card {
+    border-left: 4px solid #007bff;
+  }
+  
+  .option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  .icon-container {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #6c757d;
+  }
+  
+  .proposal-card .icon-container {
+    color: #28a745;
+  }
+  
+  .admin-card .icon-container {
+    color: #007bff;
+  }
+  
+  .option-card h4 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .option-card p {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .card-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: #495057;
+  }
+  
+  .proposal-card .card-action {
+    color: #28a745;
+  }
+  
+  .admin-card .card-action {
+    color: #007bff;
+  }
+  
+  .action-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .option-card:hover .action-icon {
+    transform: translateX(5px);
+  }
+  
+  /* Footer styling */
+  .home-footer {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #adb5bd;
+    animation: fadeIn 0.7s ease-out 1.4s forwards;
+    opacity: 0;
+  }
+  
+  /* Font styling */
+  h2, h4 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  p {
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  }
