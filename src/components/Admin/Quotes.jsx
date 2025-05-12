@@ -507,6 +507,7 @@
 // }
 
 // export default Quotes;
+
 import React, { useState, useEffect } from 'react';
 import { Table, Form, Button, Pagination, Spinner, Badge, Card, InputGroup, Alert } from 'react-bootstrap';
 import { fetchProposals, downloadProposal } from '../../services/api';
@@ -651,7 +652,12 @@ function Quotes() {
                     <td className="fw-bold">{proposal.client_name}</td>
                     <td>{proposal.your_email}</td>
                     <td>{proposal.project_title}</td>
-                    <td>{proposal.shoot_dates}</td>
+                    {/* <td>{proposal.shoot_dates}</td> */}
+                    <td>
+  {proposal.shoot_dates
+    ? new Date(proposal.shoot_dates).toLocaleDateString('en-GB')  // dd/mm/yyyy
+    : '-'}
+</td>
                     <td className="fw-bold text-end">₹{proposal.total.toLocaleString()}</td>
                     <td>
                       <Button

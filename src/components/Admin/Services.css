@@ -1,0 +1,142 @@
+/* Pagination Styles */
+.pagination-animated .page-item .page-link {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .pagination-animated .page-item:not(.active) .page-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+    z-index: 1;
+  }
+  
+  /* Active page styling */
+  .pagination-animated .page-item.active .page-link {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+  
+  /* Navigation buttons (prev/next) */
+  .pagination-nav-btn {
+    transition: all 0.3s ease;
+  }
+  
+  .pagination-nav-btn:not(:disabled):hover {
+    background-color: #e9ecef;
+    transform: translateX(-2px);
+  }
+  
+  .pagination-nav-btn:last-child:not(:disabled):hover {
+    transform: translateX(2px);
+  }
+  
+  /* Ellipsis style */
+  .pagination-animated .page-item .page-link.page-ellipsis:hover {
+    background-color: transparent;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  /* Download button animation */
+  .download-btn {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .download-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Animated pulse for download button */
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 5px rgba(13, 110, 253, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
+    }
+  }
+  
+  .download-btn:hover:not(:disabled) {
+    animation: pulse 1.5s infinite;
+  }
+  
+  /* Action buttons animation (edit/delete) */
+  .action-btn {
+    transition: all 0.2s ease;
+  }
+  
+  .action-btn:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Add/Update button animations */
+  .btn-animated {
+    transition: all 0.3s ease;
+  }
+  
+  .btn-animated:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Icon animations */
+  .btn-animated:hover:not(:disabled) svg,
+  .action-btn:hover svg,
+  .download-btn:hover:not(:disabled) svg {
+    animation: icon-pop 0.5s ease;
+  }
+  
+  @keyframes icon-pop {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Fade-in animation for table rows */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .table tbody tr {
+    animation: fadeIn 0.3s ease-in-out forwards;
+  }
+  
+  /* Staggered animation for multiple rows */
+  .table tbody tr:nth-child(1) { animation-delay: 0.05s; }
+  .table tbody tr:nth-child(2) { animation-delay: 0.10s; }
+  .table tbody tr:nth-child(3) { animation-delay: 0.15s; }
+  .table tbody tr:nth-child(4) { animation-delay: 0.20s; }
+  .table tbody tr:nth-child(5) { animation-delay: 0.25s; }
+  .table tbody tr:nth-child(6) { animation-delay: 0.30s; }
+  .table tbody tr:nth-child(7) { animation-delay: 0.35s; }
+  .table tbody tr:nth-child(8) { animation-delay: 0.40s; }
+  .table tbody tr:nth-child(9) { animation-delay: 0.45s; }
+  .table tbody tr:nth-child(10) { animation-delay: 0.50s; }
+  .table tbody tr:nth-child(11) { animation-delay: 0.55s; }
+  .table tbody tr:nth-child(12) { animation-delay: 0.60s; }
+  .table tbody tr:nth-child(13) { animation-delay: 0.65s; }
+  .table tbody tr:nth-child(14) { animation-delay: 0.70s; }
+  .table tbody tr:nth-child(15) { animation-delay: 0.75s; }
