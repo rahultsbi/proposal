@@ -120,7 +120,7 @@ function HomePage() {
       
       <Container className="home-container">
         <Row className="justify-content-center">
-          <Col xs={12} sm={10} md={8} lg={7} xl={6}>
+          <Col xs={12} sm={10} md={8} lg={8} xl={7}>
             <Card className="main-card compact">
               <div className="logo-container compact">
                 <Image 
