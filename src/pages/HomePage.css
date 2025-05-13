@@ -1,12 +1,11 @@
-/* HomePage.css - Styles for the enhanced HomePage */
+/* HomePage.css - Styles for the enhanced HomePage with no scrolling */
 
 /* Main container styles */
 .home-page-wrapper {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem 0;
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
@@ -72,9 +71,10 @@
   .home-container {
     position: relative;
     z-index: 1;
+    max-height: 90vh;
   }
   
-  /* Main card styling */
+  /* Main card styling - compact version */
   .main-card {
     border: none;
     border-radius: 16px;
@@ -82,8 +82,12 @@
     overflow: hidden;
     animation: fadeIn 0.8s ease-out forwards;
     background: white;
-    margin-bottom: 2rem;
-    padding: 1.5rem;
+  }
+  
+  .main-card.compact {
+    padding: 1rem;
+    margin: 0;
+    max-height: 80vh;
   }
   
   @keyframes fadeIn {
@@ -101,7 +105,11 @@
   .logo-container {
     text-align: center;
     margin-bottom: 1rem;
-    padding: 1rem;
+  }
+  
+  .logo-container.compact {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
   }
   
   .logo-image {
@@ -109,6 +117,10 @@
     animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s forwards;
     opacity: 0;
     transform: scale(0.8);
+  }
+  
+  .logo-image.compact {
+    max-width: 100px;
   }
   
   @keyframes popIn {
@@ -132,14 +144,6 @@
     transform: translateY(10px);
   }
   
-  .welcome-subtitle {
-    color: #6c757d;
-    margin-bottom: 2rem;
-    animation: slideIn 0.7s ease-out 0.7s forwards;
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  
   @keyframes slideIn {
     from {
       opacity: 0;
@@ -151,12 +155,23 @@
     }
   }
   
+  /* Compact body */
+  .compact-body {
+    padding: 0.5rem 1rem;
+  }
+  
   /* Options container */
   .options-container {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    margin-bottom: 2rem;
+    margin: 1.5rem 0;
+  }
+  
+  .options-container.compact {
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-direction: row;
   }
   
   @media (min-width: 768px) {
@@ -204,6 +219,10 @@
     overflow: hidden;
   }
   
+  .compact-card {
+    height: auto;
+  }
+  
   .proposal-card {
     border-left: 4px solid #28a745;
   }
@@ -218,8 +237,8 @@
   }
   
   .icon-container {
-    margin-bottom: 1rem;
-    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
     color: #6c757d;
   }
   
@@ -231,15 +250,13 @@
     color: #007bff;
   }
   
-  .option-card h4 {
+  .option-card h5 {
     font-weight: 600;
     margin-bottom: 0.5rem;
   }
   
-  .option-card p {
-    color: #6c757d;
-    margin-bottom: 1.5rem;
-    font-size: 0.9rem;
+  .compact-option {
+    padding: 1rem;
   }
   
   .card-action {
@@ -249,6 +266,10 @@
     gap: 0.5rem;
     font-weight: 600;
     color: #495057;
+  }
+  
+  .compact-action {
+    margin-top: 0.5rem;
   }
   
   .proposal-card .card-action {
@@ -269,18 +290,19 @@
   
   /* Footer styling */
   .home-footer {
-    margin-top: 1rem;
-    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
     color: #adb5bd;
     animation: fadeIn 0.7s ease-out 1.4s forwards;
     opacity: 0;
   }
   
   /* Font styling */
-  h2, h4 {
+  h3, h5 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
   p {
     font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    margin-bottom: 0.25rem;
   }
