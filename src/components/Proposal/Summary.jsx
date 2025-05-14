@@ -155,6 +155,7 @@ function ProposalSummary({ data, onBack }) {
         <Card.Text><strong>Email:</strong> {proposalData?.your_email || 'Not specified'}</Card.Text>
         <Card.Text><strong>Project Title:</strong> {proposalData?.project_title || 'N/A'}</Card.Text>
         <Card.Text><strong>Shoot Dates:</strong> {formatDate(proposalData?.shoot_dates)}</Card.Text>
+        <Card.Text><strong>Delivery Dates:</strong> {formatDate(proposalData?.delivery_date)}</Card.Text>
         <Card.Text><strong>Number of Days:</strong> {proposalData?.days || 1}</Card.Text>
         <Card.Text><strong>Category:</strong> {proposalData?.category || 'Not specified'}</Card.Text>
         <Card.Text><strong>Location:</strong> {proposalData?.location || 'Not specified'}</Card.Text>

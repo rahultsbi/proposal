@@ -77,11 +77,15 @@ function Services() {
     }
   };
 
+  // const validateServiceName = (name) => {
+  //   // Only allow letters, spaces and some punctuation like hyphens, no numbers or special characters
+  //   const regex = /^[a-zA-Z\s\-_()&]+$/;
+  //   return regex.test(name);
+  // };
   const validateServiceName = (name) => {
-    // Only allow letters, spaces and some punctuation like hyphens, no numbers or special characters
-    const regex = /^[a-zA-Z\s\-_()&]+$/;
-    return regex.test(name);
+    return name.trim().length > 0;
   };
+  
 
   const handleCreate = async (e) => {
     e.preventDefault();
