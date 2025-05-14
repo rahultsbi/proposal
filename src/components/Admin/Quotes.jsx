@@ -822,6 +822,9 @@ function Quotes() {
                 <th className="cursor-pointer" onClick={() => handleSort('shoot_dates')}>
                   Shoot Dates <SortIcon field="shoot_dates" />
                 </th>
+                <th className="cursor-pointer" onClick={() => handleSort('delivery_date')}>
+                  Delivery Dates <SortIcon field="delivery_date" />
+                </th>
                 <th className="cursor-pointer" onClick={() => handleSort('total')}>
                   Total <SortIcon field="total" />
                 </th>
@@ -848,6 +851,11 @@ function Quotes() {
                     <td>
                       {proposal.shoot_dates
                         ? new Date(proposal.shoot_dates).toLocaleDateString('en-GB')
+                        : '-'}
+                    </td>
+                    <td>
+                      {proposal.delivery_date
+                        ? new Date(proposal.delivery_dates).toLocaleDateString('en-GB')
                         : '-'}
                     </td>
                     <td className="fw-bold text-end">₹{proposal.total.toLocaleString()}</td>
