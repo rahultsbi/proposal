@@ -855,7 +855,7 @@ function Quotes() {
                     </td>
                     <td>
                       {proposal.delivery_date
-                        ? new Date(proposal.delivery_dates).toLocaleDateString('en-GB')
+                        ? new Date(proposal.delivery_date).toLocaleDateString('en-GB')
                         : '-'}
                     </td>
                     <td className="fw-bold text-end">₹{proposal.total.toLocaleString()}</td>
