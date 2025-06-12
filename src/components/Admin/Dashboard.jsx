@@ -152,7 +152,7 @@ function AdminDashboard({ onLogout }) {
       </Container>
       
       {/* Footer */}
-      <footer className="bg-dark text-white py-3 mt-5">
+      <footer style={{backgroundColor:'gray' , fontWeight:'bold'}} className="bg-white shadow-md  py-3 mt-5">
         <Container>
           <div className="d-flex justify-content-between align-items-center">
             <div>© {new Date().getFullYear()} The Small Big Idea. All rights reserved.</div>
