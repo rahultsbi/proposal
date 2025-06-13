@@ -3910,7 +3910,7 @@
 
 // export default ProposalSummary;
 import React, { useState } from 'react';
-import { Card, Button, Table, Container, Spinner, Modal } from 'react-bootstrap';
+import { Card, Button, Table, Container, Spinner, Modal,OverlayTrigger,Tooltip } from 'react-bootstrap';
 import { downloadProposal } from '../../services/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faCheck, faFileExcel, faFilePdf, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
@@ -5991,32 +5991,58 @@ const downloadPdf = async () => {
   };
 
   // Determine download button content for Excel
+  // const getDownloadButton = () => {
+  //   if (isDownloading) {
+  //     return (
+  //       <Button variant="success" disabled className="download-btn">
+  //         <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" className="me-2" />
+  //         Generating Excel...
+  //       </Button>
+  //     );
+  //   }
+    
+  //   if (downloadSuccess) {
+  //     return (
+  //       <Button variant="success" className="download-btn success-animation">
+  //         <FontAwesomeIcon icon={faCheck} className="me-2" />
+  //         Downloaded!
+  //       </Button>
+  //     );
+  //   }
+    
+  //   return (
+  //     <Button variant="success" onClick={downloadExcel} className="download-btn pulse-animation">
+  //       <FontAwesomeIcon icon={faFileExcel} className="me-2" />
+  //       Download Excel
+  //     </Button>
+  //   );
+  // };
   const getDownloadButton = () => {
-    if (isDownloading) {
-      return (
-        <Button variant="success" disabled className="download-btn">
-          <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" className="me-2" />
-          Generating Excel...
+  return (
+    <OverlayTrigger
+    // style={{height: '40px', border: '1px solid #ccc', borderRadius: '4px', padding: '0 10px'}}
+      placement="top"
+      overlay={
+        <Tooltip id="excel-coming-soon-tooltip">
+          Excel download coming soon
+        </Tooltip>
+      }
+    >
+      <span className="d-inline-block" style={{height: '40px', borderRadius: '4px', }}>
+        <Button
+          variant="secondary"
+          disabled
+          className="download-btn"
+          style={{ pointerEvents: 'none', opacity: 0.65, height: '47px' }}
+        >
+          <FontAwesomeIcon icon={faFileExcel} className="me-2" />
+          Download Excel
         </Button>
-      );
-    }
-    
-    if (downloadSuccess) {
-      return (
-        <Button variant="success" className="download-btn success-animation">
-          <FontAwesomeIcon icon={faCheck} className="me-2" />
-          Downloaded!
-        </Button>
-      );
-    }
-    
-    return (
-      <Button variant="success" onClick={downloadExcel} className="download-btn pulse-animation">
-        <FontAwesomeIcon icon={faFileExcel} className="me-2" />
-        Download Excel
-      </Button>
-    );
-  };
+      </span>
+    </OverlayTrigger>
+  );
+};
+
 
   // Determine download button content for PDF
   const getPdfDownloadButton = () => {
