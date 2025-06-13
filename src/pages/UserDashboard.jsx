@@ -481,7 +481,7 @@ const handleDownload = (quoteId) => {
                       <th>Client</th>
                       <th>Project</th>
                       <th>Total</th>
-                      <th>Status</th>
+                      {/* <th>Status</th> */}
                       <th>Created</th>
                       <th>Actions</th>
                     </tr>
@@ -497,22 +497,22 @@ const handleDownload = (quoteId) => {
                         <td>
                           <strong>₹{proposal.total?.toLocaleString()}</strong>
                         </td>
-                        <td>
+                        {/* <td>
                           <Badge bg={getStatusBadge(proposal.status)}>
                             {proposal.status?.toUpperCase()}
                           </Badge>
-                        </td>
+                        </td> */}
                         <td>{formatDate(proposal.created_at)}</td>
                         <td>
                           <div className="d-flex gap-1">
-                            <Button 
+                            {/* <Button 
                               variant="outline-primary" 
                               size="sm" 
                               title="View"
                               onClick={() => navigate(`/proposal/${proposal.id}`)}
                             >
                               <FontAwesomeIcon icon={faEye} />
-                            </Button>
+                            </Button> */}
                             <Button
                               variant="outline-success"
                               size="sm"
