@@ -2600,15 +2600,31 @@ function ProposalForm({ onSubmit, onAdminClick,onHomeClick }) {
                   )}
                   
                   {formData.shoot_dates && (
+                    // <p>
+                    //   <strong>Shoot Date:</strong> {new Date(formData.shoot_dates).toLocaleDateString()}
+                    // </p>
                     <p>
-                      <strong>Shoot Date:</strong> {new Date(formData.shoot_dates).toLocaleDateString()}
-                    </p>
+  <strong>Shoot Date:</strong>{' '}
+  {new Date(formData.shoot_dates).toLocaleDateString('en-IN', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  })}
+</p>
                   )}
                   
                   {formData.delivery_date && (
+                    // <p>
+                    //   <strong>Delivery Date:</strong> {new Date(formData.delivery_date).toLocaleDateString()}
+                    // </p>
                     <p>
-                      <strong>Delivery Date:</strong> {new Date(formData.delivery_date).toLocaleDateString()}
-                    </p>
+  <strong>Delivery Date:</strong>{' '}
+  {new Date(formData.delivery_date).toLocaleDateString('en-IN', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  })}
+</p>
                   )}
 
                   <div className="mb-3">

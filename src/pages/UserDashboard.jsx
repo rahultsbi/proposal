@@ -290,7 +290,7 @@ const handleDownload = (quoteId) => {
                   </Card.Body>
                 </Card>
               </Col>
-              <Col md={3} className="mb-3">
+              {/* <Col md={3} className="mb-3">
                 <Card className="text-center h-100 border-0 shadow-sm">
                   <Card.Body>
                     <div className="text-success mb-2">
@@ -302,8 +302,8 @@ const handleDownload = (quoteId) => {
                     <p className="text-muted mb-0">Accepted</p>
                   </Card.Body>
                 </Card>
-              </Col>
-              <Col md={3} className="mb-3">
+              </Col> */}
+              {/* <Col md={3} className="mb-3">
                 <Card className="text-center h-100 border-0 shadow-sm">
                   <Card.Body>
                     <div className="text-warning mb-2">
@@ -315,8 +315,8 @@ const handleDownload = (quoteId) => {
                     <p className="text-muted mb-0">Drafts</p>
                   </Card.Body>
                 </Card>
-              </Col>
-              <Col md={3} className="mb-3">
+              </Col> */}
+              {/* <Col md={3} className="mb-3">
                 <Card className="text-center h-100 border-0 shadow-sm">
                   <Card.Body>
                     <div className="text-info mb-2">
@@ -328,7 +328,7 @@ const handleDownload = (quoteId) => {
                     <p className="text-muted mb-0">Sent</p>
                   </Card.Body>
                 </Card>
-              </Col>
+              </Col> */}
             </Row>
 
             {/* Quick Actions */}
@@ -388,7 +388,7 @@ const handleDownload = (quoteId) => {
                             <th>Quote ID</th>
                             <th>Client</th>
                             <th>Total</th>
-                            <th>Status</th>
+                            {/* <th>Status</th> */}
                             <th>Created</th>
                             <th>Actions</th>
                           </tr>
@@ -408,22 +408,22 @@ const handleDownload = (quoteId) => {
                               <td>
                                 <strong>₹{proposal.total?.toLocaleString()}</strong>
                               </td>
-                              <td>
+                              {/* <td>
                                 <Badge bg={getStatusBadge(proposal.status)}>
                                   {proposal.status?.toUpperCase()}
                                 </Badge>
-                              </td>
+                              </td> */}
                               <td>{formatDate(proposal.created_at)}</td>
                               <td>
                                 <div className="d-flex gap-1">
-                                  <Button
+                                  {/* <Button
                                     variant="outline-primary"
                                     size="sm"
                                     title="View"
                                     onClick={() => navigate(`/proposal/${proposal.id}`)}
                                   >
                                     <FontAwesomeIcon icon={faEye} />
-                                  </Button>
+                                  </Button> */}
                                   <Button
                                     variant="outline-success"
                                     size="sm"
