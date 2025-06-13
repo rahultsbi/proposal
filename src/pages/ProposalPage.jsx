@@ -55,6 +55,9 @@ function ProposalPage() {
   const handleAdminClick = () => {
     navigate('/admin/login');
   };
+  const handleHomeClick = () => {
+    navigate('/');
+  };
   
   // Render summary if we're on the summary step and have proposal data
   if (step === 'summary' && proposalData) {
@@ -71,6 +74,7 @@ function ProposalPage() {
     <ProposalForm
       onSubmit={handleSubmit}
       onAdminClick={handleAdminClick}
+      onHomeClick={handleHomeClick}
     />
   );
 }

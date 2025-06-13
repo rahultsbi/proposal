@@ -1629,6 +1629,7 @@ import {
   faChevronRight
 } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../../assets/Logo.png';
+import { Navigate } from 'react-router-dom';
 
 // Service categories structure
 const SERVICE_CATEGORIES = {
@@ -1706,7 +1707,7 @@ const SERVICE_CATEGORIES = {
   }
 };
 
-function ProposalForm({ onSubmit, onAdminClick }) {
+function ProposalForm({ onSubmit, onAdminClick,onHomeClick }) {
   const [services, setServices] = useState([]);
   const [organizedServices, setOrganizedServices] = useState({});
   const [formData, setFormData] = useState({
@@ -2067,6 +2068,15 @@ function ProposalForm({ onSubmit, onAdminClick }) {
             <div className="text-center flex-grow-1">
               <h1 className="text-purple mb-0">TSBI Studios Quote Portal</h1>
             </div>
+            <Button
+              variant="outline-primary" onClick={onHomeClick}
+              className="px-3 py-1" 
+              >
+              <FontAwesomeIcon icon={faChevronRight} className="me-2" />
+                Home
+
+              </Button>
+              <br/>
             <Button 
               variant="outline-danger" 
               onClick={onAdminClick}
@@ -2089,10 +2099,10 @@ function ProposalForm({ onSubmit, onAdminClick }) {
                     <h3 className="mb-1">Create Studio Proposal</h3>
                     <p className="text-muted mb-0">Fill in the details to generate a new quote</p>
                   </div>
-                  <Badge bg="info" className="py-2 px-3">
+                  {/* <Badge bg="info" className="py-2 px-3">
                     <FontAwesomeIcon icon={faFilePdf} className="me-1" />
                     New Quote
-                  </Badge>
+                  </Badge> */}
                 </div>
 
                 {errors.submission && (
@@ -2292,7 +2302,7 @@ function ProposalForm({ onSubmit, onAdminClick }) {
                   
                   <Form.Group className="mb-4">
                     <Form.Label>
-                      Select Required Particular <span className="text-danger">*</span>
+                      Select Required Particular 
                       <Badge bg="secondary" className="ms-2">
                         {formData.services.length} selected
                       </Badge>
@@ -2681,7 +2691,7 @@ function ProposalForm({ onSubmit, onAdminClick }) {
                   <div className="d-flex align-items-center">
                     <FontAwesomeIcon icon={faInfoCircle} className="me-3 text-primary fa-lg" />
                     <small>
-                      <strong>Need help?</strong> Contact the admin team at{' '}
+                      <strong>Need help?</strong> Contact the tech team at{' '}
                       <a href="mailto:admin@tsbi.in">tech@tsbi.in</a> for assistance.
                     </small>
                   </div>
