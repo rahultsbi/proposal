@@ -1630,6 +1630,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../../assets/Logo.png';
 import { Navigate } from 'react-router-dom';
+import { useUserAuth } from '../../contexts/UserAuthContext';
 
 // Service categories structure
 const SERVICE_CATEGORIES = {
@@ -1708,6 +1709,7 @@ const SERVICE_CATEGORIES = {
 };
 
 function ProposalForm({ onSubmit, onAdminClick,onHomeClick }) {
+   const { user, logout } = useUserAuth();
   const [services, setServices] = useState([]);
   const [organizedServices, setOrganizedServices] = useState({});
   const [formData, setFormData] = useState({
@@ -2052,6 +2054,10 @@ function ProposalForm({ onSubmit, onAdminClick,onHomeClick }) {
     : minDate;
 
   const selectedServicesDetails = getSelectedServicesWithDetails();
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
     <div className="proposal-form-component">
@@ -2079,11 +2085,11 @@ function ProposalForm({ onSubmit, onAdminClick,onHomeClick }) {
               <br/>
             <Button 
               variant="outline-danger" 
-              onClick={onAdminClick}
+              onClick={handleLogout}
               className="px-3 py-1"
             >
               <FontAwesomeIcon icon={faUser} className="me-2" />
-              Admin Login
+              Logout
             </Button>
           </div>
         </Container>
