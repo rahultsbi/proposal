@@ -217,7 +217,7 @@ const handleDownload = (quoteId) => {
     setError('');
     setSuccess('Starting download...');
     
-    const API_URL = 'https://tsbi-proposal-backend.onrender.com/api';
+    const API_URL = 'http://localhost:5000/api';
     const downloadUrl = `${API_URL}/proposals/${quoteId}/download`;
     
     // Create a hidden anchor element and trigger click
@@ -245,6 +245,11 @@ const handleDownload = (quoteId) => {
     logout();
     navigate('/');
   };
+
+  const handleDashboard = () => {
+    navigate('/');
+  };
+
 
   const getStatusBadge = (status) => {
     const variants = {
@@ -575,6 +580,7 @@ const handleDownload = (quoteId) => {
                   <FontAwesomeIcon icon={faHome} className="me-2" />
                   Home
                 </Link>
+                 
                 <Button 
                   variant="outline-danger" 
                   onClick={handleLogout}

@@ -45,7 +45,7 @@ import axios from 'axios';
 // Use environment variables properly for client-side code
 const API_URL = import.meta.env?.VITE_API_URL ||
                window.env?.REACT_APP_API_URL ||
-               'https://tsbi-proposal-backend.onrender.com/api';
+               'http://localhost:5000/api';
 
 const API = axios.create({
   baseURL: API_URL,
@@ -93,6 +93,31 @@ export const updateUserProfile = (profileData) => API.put('/users/profile', prof
 export const changeUserPassword = (passwordData) => API.post('/users/change-password', passwordData);
 export const getUserProposals = (search, page) => API.get('/users/proposals', { params: { search, page } });
 export const getUserProposal = (proposalId) => API.get(`/users/proposals/${proposalId}`);
+
+// Add these API functions to your existing services/api.js file
+
+// Dynamic Tables API functions
+export const fetchTables = () => API.get('/tables');
+export const createTable = (tableData) => API.post('/tables', tableData);
+export const updateTable = (id, tableData) => API.put(`/tables/${id}`, tableData);
+export const deleteTable = (id) => API.delete(`/tables/${id}`);
+
+// Table Columns API functions
+export const fetchTableColumns = (tableId) => API.get(`/tables/${tableId}/columns`);
+export const createTableColumn = (tableId, columnData) => API.post(`/tables/${tableId}/columns`, columnData);
+export const updateTableColumn = (tableId, columnId, columnData) => API.put(`/tables/${tableId}/columns/${columnId}`, columnData);
+export const deleteTableColumn = (tableId, columnId) => API.delete(`/tables/${tableId}/columns/${columnId}`);
+
+// Table Data API functions
+export const fetchTableData = (tableId, search, page) => API.get(`/tables/${tableId}/data`, { params: { search, page } });
+export const createTableRecord = (tableId, recordData) => API.post(`/tables/${tableId}/data`, recordData);
+export const updateTableRecord = (tableId, recordId, recordData) => API.put(`/tables/${tableId}/data/${recordId}`, recordData);
+export const deleteTableRecord = (tableId, recordId) => API.delete(`/tables/${tableId}/data/${recordId}`);
+export const downloadTableData = (tableId) => API.get(`/tables/${tableId}/download`, { responseType: 'blob' });
+
+// Table Schema API functions
+export const getTableSchema = (tableId) => API.get(`/tables/${tableId}/schema`);
+export const updateTableSchema = (tableId, schemaData) => API.put(`/tables/${tableId}/schema`, schemaData);
 
 // Settings API functions
 export const getCommissionRate = () => API.get('/settings/commission');

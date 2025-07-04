@@ -75,6 +75,7 @@ function ProposalPage() {
       onSubmit={handleSubmit}
       onAdminClick={handleAdminClick}
       onHomeClick={handleHomeClick}
+      onDashboardClick={() => navigate('/dashboard')}
     />
   );
 }

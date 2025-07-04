@@ -1708,7 +1708,7 @@ const SERVICE_CATEGORIES = {
   }
 };
 
-function ProposalForm({ onSubmit, onAdminClick,onHomeClick }) {
+function ProposalForm({ onSubmit, onAdminClick,onHomeClick,onDashboardClick }) {
    const { user, logout } = useUserAuth();
   const [services, setServices] = useState([]);
   const [organizedServices, setOrganizedServices] = useState({});
@@ -2059,6 +2059,12 @@ function ProposalForm({ onSubmit, onAdminClick,onHomeClick }) {
     navigate('/');
   };
 
+  // const onDashboardClick = () => {
+  //   navigate('/dashboard');
+  // }
+ 
+
+
   return (
     <div className="proposal-form-component">
       <div className="header bg-white border-bottom py-2">
@@ -2074,9 +2080,22 @@ function ProposalForm({ onSubmit, onAdminClick,onHomeClick }) {
             <div className="text-center flex-grow-1">
               <h1 className="text-purple mb-0">TSBI Studios Quote Portal</h1>
             </div>
+
+             <Button
+              variant="outline-primary" onClick={onDashboardClick}
+              className="px-3 py-1" 
+              style={{ marginRight: '10px' }}
+              >
+              <FontAwesomeIcon icon={faChevronRight} className="me-2" />
+                Dashboard
+
+              </Button>
+              <br/>
+            
             <Button
               variant="outline-primary" onClick={onHomeClick}
               className="px-3 py-1" 
+              style={{ marginRight: '10px' }}
               >
               <FontAwesomeIcon icon={faChevronRight} className="me-2" />
                 Home
