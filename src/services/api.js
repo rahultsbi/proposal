@@ -46,6 +46,7 @@ import axios from 'axios';
 const API_URL = import.meta.env?.VITE_API_URL ||
                window.env?.REACT_APP_API_URL ||
                'https://tsbi-proposal-backend.onrender.com/api';
+              //  https://tsbi-proposal-backend.onrender.com
 
 const API = axios.create({
   baseURL: API_URL,
@@ -114,6 +115,9 @@ export const createTableRecord = (tableId, recordData) => API.post(`/tables/${ta
 export const updateTableRecord = (tableId, recordId, recordData) => API.put(`/tables/${tableId}/data/${recordId}`, recordData);
 export const deleteTableRecord = (tableId, recordId) => API.delete(`/tables/${tableId}/data/${recordId}`);
 export const downloadTableData = (tableId) => API.get(`/tables/${tableId}/download`, { responseType: 'blob' });
+
+// 🚀 NEW: Bulk upload function
+export const bulkCreateRecords = (tableId, records) => API.post(`/tables/${tableId}/data/bulk`, { records });
 
 // Table Schema API functions
 export const getTableSchema = (tableId) => API.get(`/tables/${tableId}/schema`);

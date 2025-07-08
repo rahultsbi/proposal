@@ -35,7 +35,7 @@ function AdminPage() {
           authenticated ? (
             <Dashboard onLogout={handleLogout} />
           ) : (
-            <Navigate to="/admin/login" replace state={{ from: location }} />
+            <Navigate to="/" replace state={{ from: location }} />
           )
         } 
       />
