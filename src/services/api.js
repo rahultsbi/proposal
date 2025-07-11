@@ -116,6 +116,23 @@ export const updateTableRecord = (tableId, recordId, recordData) => API.put(`/ta
 export const deleteTableRecord = (tableId, recordId) => API.delete(`/tables/${tableId}/data/${recordId}`);
 export const downloadTableData = (tableId) => API.get(`/tables/${tableId}/download`, { responseType: 'blob' });
 
+export const fetchCategories = () => API.get('/categories');
+export const createCategory = (categoryData) => API.post('/categories', categoryData);
+export const updateCategory = (id, categoryData) => API.put(`/categories/${id}`, categoryData);
+export const deleteCategory = (id) => API.delete(`/categories/${id}`);
+export const duplicateCategory = (id, data) => API.post(`/categories/${id}/duplicate`, data);
+export const getCategoryServices = (id) => API.get(`/categories/${id}/services`);
+export const updateCategoryServices = (id, serviceIds) => API.put(`/categories/${id}/services`, { serviceIds });
+export const getCategorySummary = () => API.get('/categories/summary');
+export const searchCategories = (query) => API.get('/categories/search', { params: { q: query } });
+
+
+// Service Data API functions (add these to your existing api.js)
+export const getServicesWithData = () => API.get('/service-data/services-with-data');
+export const fetchServiceData = (serviceId) => API.get(`/service-data/${serviceId}`);
+export const createServiceData = (serviceId, dataInput) => API.post(`/service-data/${serviceId}`, dataInput);
+export const updateServiceData = (serviceId, dataId, dataInput) => API.put(`/service-data/${serviceId}/${dataId}`, dataInput);
+export const deleteServiceData = (serviceId, dataId) => API.delete(`/service-data/${serviceId}/${dataId}`);
 // 🚀 NEW: Bulk upload function
 export const bulkCreateRecords = (tableId, records) => API.post(`/tables/${tableId}/data/bulk`, { records });
 
